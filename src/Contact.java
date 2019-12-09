@@ -28,5 +28,9 @@ public class Contact {
         return name + ":" + number;
     }
 
+    public String formattedString(){
+        return name + " | " + number;
+    }
+
 
 }

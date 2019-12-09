@@ -38,9 +38,9 @@ public class Manager {
             Path filepath = Paths.get(directory,file);
 
             Files.write(filepath, contactStrings);
+            List<String> lines = Files.readAllLines(filepath);
 
             System.out.println("Welcome to the Contact Manager\n1. View Contacts\n2. Add a new Contact\n3. Search for a Contact by name\n4. Delete an existing contact by name\n5. Exit");
-
 
 
         }
@@ -49,9 +49,11 @@ public class Manager {
         }
     }
 
-    static void showContacts(List<String> contacts){
-        for(String contact : contacts){
-            System.out.println(contact);
+    static void showContacts(List<String> lines){
+        System.out.println("Name  |  Phone number\n- - - - - - - - - - -");
+        for(String line : lines){
+            Contact name = formatContact(line);
+            System.out.println(name.formattedString());
         }
     }
 
