@@ -29,7 +29,20 @@ public class Contact {
     }
 
     public String formattedString(){
-        return name + " | " + number;
+        StringBuilder name = new StringBuilder(this.name);
+        int amountOfSpace = 15 - name.length();
+        String formattedNum = "| ";
+        if(this.number.length() == 10){
+            formattedNum = this.number.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3");
+            formattedNum += " |";
+        }else if(this.number.length() == 7){
+            formattedNum = this.number.replaceFirst("(\\d{3})(\\d+)", "$1-$2");
+            formattedNum += "       |";
+        }
+        for (int i = 0; i <= amountOfSpace; i++) {
+            name.append(" ");
+        }
+        return name + " | " + formattedNum;
     }
 
 
