@@ -30,7 +30,7 @@ public class Contact {
 
     public String formattedString(){
         StringBuilder name = new StringBuilder(this.name);
-        int amountOfSpace = 15 - name.length();
+        int amountOfSpace = 16 - name.length();
         String formattedNum = "| ";
         if(this.number.length() == 10){
             formattedNum = this.number.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3");
@@ -39,9 +39,7 @@ public class Contact {
             formattedNum = this.number.replaceFirst("(\\d{3})(\\d+)", "$1-$2");
             formattedNum += "       |";
         }
-        for (int i = 0; i <= amountOfSpace; i++) {
-            name.append(" ");
-        }
+        name.append(" ".repeat(amountOfSpace));
         return name + " | " + formattedNum;
     }
 
