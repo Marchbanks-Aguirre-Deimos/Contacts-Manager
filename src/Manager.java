@@ -94,7 +94,7 @@ public class Manager {
 
 
     static void showContacts(List<String> lines) {
-        System.out.println();
+        System.out.println("- - - - - - - - - - - - - - - - - - ");
         System.out.println("Name             | Phone number   |\n- - - - - - - - - - - - - - - - - - ");
         for (String line : lines) {
             Contact name = formatContact(line);
@@ -144,7 +144,7 @@ public class Manager {
             for (String result : searchList) {
                 Contact tempContact = formatContact(result);
                 if (tempContact.getName().equalsIgnoreCase(name)) {
-                    System.out.println();
+                    System.out.println("- - - - - - - - - - - - - - - - - - ");
                     System.out.println("Name             | Phone number   |\n- - - - - - - - - - - - - - - - - - ");
                     System.out.println(tempContact.formattedString());
                 }
