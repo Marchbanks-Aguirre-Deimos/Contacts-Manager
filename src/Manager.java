@@ -148,6 +148,7 @@ public class Manager {
 
     static void searchByName(Path filepath, String name) {
         try {
+            boolean flag = true;
             List<String> searchList = Files.readAllLines(filepath);
             for (String result : searchList) {
                 Contact tempContact = formatContact(result);
@@ -155,10 +156,12 @@ public class Manager {
                     System.out.println("- - - - - - - - - - - - - - - - - - ");
                     System.out.println("Name             | Phone number   |\n- - - - - - - - - - - - - - - - - - ");
                     System.out.println(tempContact.formattedString());
-                }else{
-                    System.out.println("- - - - - - - - - - - - - - - - - - ");
-                    System.out.println("No contact with that name exists.");
+                    flag = false;
                 }
+            }
+            if(flag){
+                System.out.println("- - - - - - - - - - - - - - - - - - ");
+                System.out.println("No contact with that name exists.");
             }
         } catch (IOException e) {
             e.printStackTrace();
